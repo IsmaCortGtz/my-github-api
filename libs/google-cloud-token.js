@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" });
+/* import dotenv from "dotenv";
+dotenv.config({ path: "./config.env" }); */
 
 const GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
   "type": "service_account",
