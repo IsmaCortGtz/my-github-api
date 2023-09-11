@@ -4,9 +4,7 @@ dotenv.config({ path: "./config.env" }); */
 import { google } from "googleapis";
 
 
-
 async function getGoogleSheetClient() {
-  console.log(__dirname)
   const auth = new google.auth.GoogleAuth({
     keyFile: "./google-cloud-token.json",
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
