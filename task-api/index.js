@@ -9,8 +9,10 @@ const taskApiRouter = express.Router();
 taskApiRouter.get("/:sheetID/:tabName/:range", async (req, res) => {
   if (checkOrigin(req)) res.setHeader('Access-Control-Allow-Origin', '*');
   const rawData = await getData(req.params.sheetID, req.params.tabName, req.params.range);
-  if (!Array.isArray(rawData)) res.send(rawData);
-  const formatedData = createJSON(rawData);
+
+  if (rawData.error) { res.send(rawData); return; };
+
+  const formatedData = createJSON(rawData.values);
   res.send(formatedData);
 });
 
