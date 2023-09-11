@@ -1,12 +1,10 @@
-/* import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" }); */
-
 import { google } from "googleapis";
+import GOOGLE_SERVICE_ACCOUNT_CREDENTIALS from "../../libs/google-cloud-token.js"
 
 
 async function getGoogleSheetClient() {
   const auth = new google.auth.GoogleAuth({
-    keyFile: "./google-cloud-token.json",
+    credentials: GOOGLE_SERVICE_ACCOUNT_CREDENTIALS,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 

@@ -1,12 +1,7 @@
-/* import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" }); */
+import dotenv from "dotenv";
+dotenv.config({ path: "./config.env" });
 
-import * as fs from "node:fs";
-
-
-// Generate Google Cloud Auth JSON file
-
-const GOOGLE_CLOUD_CREDENTIALS = {
+const GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
   "type": "service_account",
   "project_id": process.env.GOOGLE_PROJECT_ID,
   "private_key_id": process.env.GOOGLE_PRIVATE_KEY_ID,
@@ -20,7 +15,4 @@ const GOOGLE_CLOUD_CREDENTIALS = {
   "universe_domain": "googleapis.com"
 }
 
-fs.writeFileSync(
-  "./google-cloud-token.json",
-  JSON.stringify(GOOGLE_CLOUD_CREDENTIALS)
-);
+export default GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
