@@ -5,7 +5,7 @@
   "description": "My API deploy for GitHub Pages",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node --openssl-legacy-provider index.js"
   },
   "author": "IsmaCortGtz",
   "license": "MIT",
