@@ -27,7 +27,7 @@ async function readGoogleSheet(googleSheetClient, sheetId, tabName, range) {
     if ((res.code !== 200) && (res.code !== undefined)) return [];
     return res.data.values;
   } catch (error) {
-    return [];
+    return error;
   }
 }
 
