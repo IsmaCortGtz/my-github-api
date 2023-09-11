@@ -6,8 +6,9 @@ import { google } from "googleapis";
 
 
 async function getGoogleSheetClient() {
+  console.log(__dirname)
   const auth = new google.auth.GoogleAuth({
-    keyFile: process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE_PATH,
+    keyFile: "./google-cloud-token.json",
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 

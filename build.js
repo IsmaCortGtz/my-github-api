@@ -21,6 +21,6 @@ const GOOGLE_CLOUD_CREDENTIALS = {
 }
 
 fs.writeFileSync(
-  process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE_PATH,
+  "./google-cloud-token.json",
   JSON.stringify(GOOGLE_CLOUD_CREDENTIALS)
 );

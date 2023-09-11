@@ -12,10 +12,6 @@ app.use(cors({
   optionsSuccessStatus: 200
 }));
 
-app.get("/:test", (req, res) => {
-  res.send(req.params.test)
-})
-
 app.use("/task-api", taskApiRouter);
 
 app.listen(PORT, (err) => {
