@@ -5,8 +5,8 @@
   "description": "My API deploy for GitHub Pages",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "node build.js"
+    "gen-auth": "node gen-auth.js",
+    "start": "npm run gen-auth && node index.js"
   },
   "author": "IsmaCortGtz",
   "license": "MIT",
