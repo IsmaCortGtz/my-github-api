@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" });
+/* import dotenv from "dotenv";
+dotenv.config({ path: "./config.env" }); */
 
 import * as fs from "node:fs";
 
