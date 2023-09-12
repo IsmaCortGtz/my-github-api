@@ -14,21 +14,15 @@ export function createJSON(rawData) {
   var dataArray = filterArray(rawData);
 
   var formatedJSON = [];
-  dataArray.forEach((currentRow, index) => {
+  dataArray.forEach((currentRow) => {
     let currentJSON = {};
     currentJSON["subject"] = currentRow[0];
     currentJSON["title"] = currentRow[1];
     currentJSON["description"] = currentRow[2];
-    currentJSON["deadline"] = stringToDate(currentRow[3], currentRow[4]);
+    currentJSON["deadlineDate"] = currentRow[3];
+    currentJSON["deadlineTime"] =  currentRow[4];
     formatedJSON.push(currentJSON);
   });
 
   return formatedJSON;
-}
-
-
-function stringToDate(date, time){
-  var oldDateArray = date.split("/");
-  var newString = `${oldDateArray[2]}-${oldDateArray[1].padStart(2, "0")}-${oldDateArray[0].padStart(2, "0")}T${time}`;
-  return new Date(newString);
 }
