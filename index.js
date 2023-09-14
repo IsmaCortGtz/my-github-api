@@ -6,7 +6,9 @@ import taskApiRouter from "./task-api/index.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use("/task-api", taskApiRouter);
+
+app.use("/homework-api", taskApiRouter);
+
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);

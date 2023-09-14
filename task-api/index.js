@@ -6,9 +6,9 @@ import checkOrigin from "../libs/origin.js";
 
 const taskApiRouter = express.Router();
 
-taskApiRouter.get("/:sheetID/:tabName/:range", async (req, res) => {
+taskApiRouter.get("/:tabName", async (req, res) => {
   if (checkOrigin(req)) res.setHeader('Access-Control-Allow-Origin', '*');
-  const rawData = await getData(req.params.sheetID, req.params.tabName, req.params.range);
+  const rawData = await getData(process.env.HOMEWORK_SPREADSHEET_ID, req.params.tabName, process.env.HOMEWORK_SHEETS_RANGE);
 
   if (rawData.error) { res.send(rawData); return; };
 
