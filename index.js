@@ -1,13 +1,15 @@
-/* import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" }); */
+import dotenv from "dotenv";
+dotenv.config({ path: "./config.env" });
 
 import express from "express";
 import taskApiRouter from "./task-api/index.js";
+import scheduleApiRouter from "./schedule-api/index.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 
 app.use("/homework-api", taskApiRouter);
+app.use("/schedule-api", scheduleApiRouter);
 
 
 app.listen(PORT, (err) => {
