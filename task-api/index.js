@@ -6,13 +6,13 @@ import checkOrigin from "../libs/origin.js";
 
 const taskApiRouter = express.Router();
 
-taskApiRouter.get("/:tabName", async (req, res) => {
+taskApiRouter.get("/:tabName/:timeOut/:timeIn", async (req, res) => {
   if (checkOrigin(req)) res.setHeader('Access-Control-Allow-Origin', '*');
   const rawData = await getData(process.env.HOMEWORK_SPREADSHEET_ID, req.params.tabName, process.env.HOMEWORK_SHEETS_RANGE);
 
   if (rawData.error) { res.send(rawData); return; };
 
-  const formatedData = createJSON(rawData.values);
+  const formatedData = createJSON(rawData.values, parseInt(req.params.timeOut), parseInt(req.params.timeIn));
   res.send(formatedData);
 });
 

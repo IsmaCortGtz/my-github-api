@@ -1,4 +1,4 @@
-function filterArray(rawData){
+function filterArray(rawData, timeOut, timeIn){
   return rawData.filter((currentRow, index) => {
     if (index === 0) return false;
     if (currentRow.length !== 5) return false;
@@ -6,7 +6,8 @@ function filterArray(rawData){
     if (currentRow[1] === "") return false;
     if (currentRow[3] === "") return false;
     if (currentRow[4] === "") return false;
-    if ((new Date(currentRow[3]).getTime() + parseInt(process.env.HOMEWORK_MILISECONDS_TIME_OUDATE_FILTER)) < Date.now()) return false;
+    if ((new Date(currentRow[3]).getTime() + timeOut) < Date.now()) return false;
+    if ((new Date(currentRow[3]).getTime()) > (Date.now() + timeIn)) return false;
     if (new Date(currentRow[4]).getTime() > Date.now()) return false;
     return true;
   });
@@ -42,8 +43,8 @@ function orderHomework(homeworkList){
 }
 
 
-export function createJSON(rawData) {
-  var dataArray = filterArray(rawData);
+export function createJSON(rawData, timeOut, timeIn) {
+  var dataArray = filterArray(rawData, timeOut, timeIn);
 
   var formatedJSON = [];
   dataArray.forEach((currentRow) => {
